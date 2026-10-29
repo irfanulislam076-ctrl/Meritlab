@@ -11,7 +11,7 @@ export function Dashboard() {
   useEffect(() => { api<Stats>("/admin/stats").then(setS).catch((e) => setError(e.message)); }, []);
   if (!s) return <><Msg text={error} /><div className="skeleton h-40" /></>;
   const max = Math.max(1, ...s.participation.map((p) => p.count));
-  const cards = [["Total students", s.students, "bg-tint-yellow"], ["Paid students", s.paid, "bg-tint-mint"], ["Revenue this month", `৳${s.revenueThisMonth.toLocaleString("en-IN")}`, "bg-tint-lime"], ["Live now", s.live ? `Day ${s.live.dayNo}` : "None", "bg-tint-blue", s.live ? `${s.live.takingNow} taking the exam` : `${s.pending} payments pending`]] as const;
+  const cards: [string, string | number, string, string?][] = [["Total students", s.students, "bg-tint-yellow"], ["Paid students", s.paid, "bg-tint-mint"], ["Revenue this month", `৳${s.revenueThisMonth.toLocaleString("en-IN")}`, "bg-tint-lime"], ["Live now", s.live ? `Day ${s.live.dayNo}` : "None", "bg-tint-blue", s.live ? `${s.live.takingNow} taking the exam` : `${s.pending} payments pending`]] as const;
   return (
     <>
       <div className="grid gap-4 md:grid-cols-4">{cards.map(([l, v, c, sub]) => <div key={l} className={`rounded-2xl p-5 ${c}`}><p className="text-sm text-muted">{l}</p><p className="text-3xl font-bold">{v}</p>{sub && <p className="text-sm text-muted">{sub}</p>}</div>)}</div>

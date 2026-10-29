@@ -7,7 +7,7 @@ type Cat = { _id: string; name: string };
 type Day = { dayNo: number; type: string; topics: Record<string, string>; vocabFrom?: number; vocabTo?: number };
 const SUBJ = ["BANGLA", "ENGLISH", "MATH", "GK", "ICT"];
 const TOPIC_KEYS = ["bangla", "english", "math", "gk", "ict"];
-const BLANK = { categoryId: "", title: "", description: "", thumbnailUrl: "", durationDays: 30, priceBdt: 499, freeDays: 1, startDate: dhakaDate(new Date().toISOString()), examOpenTime: "00:00", examCloseTime: "23:59", negativeMarking: 0.25, passMark: 60, subjectCounts: { BANGLA: 25, ENGLISH: 25, MATH: 20, GK: 20, ICT: 10 }, status: "DRAFT" };
+const BLANK = { categoryId: "", title: "", description: "", thumbnailUrl: "", durationDays: 30, priceBdt: 499, freeDays: 1, startDate: dhakaDate(new Date().toISOString()), examOpenTime: "00:00", examCloseTime: "23:59", negativeMarking: 0.25, passMark: 60, subjectCounts: { BANGLA: 25, ENGLISH: 25, MATH: 20, GK: 20, ICT: 10 } as Record<string, number>, status: "DRAFT" };
 
 function Routine({ course, onClose }: { course: AdminCourse; onClose: () => void }) {
   const [days, setDays] = useState<Day[]>([]);
