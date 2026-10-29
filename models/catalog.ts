@@ -49,8 +49,8 @@ const routineDaySchema = new Schema(
     date: { type: Date, required: true }, // start of the Dhaka day, as a UTC instant
     type: { type: String, enum: ROUTINE_TYPES, default: "TOPIC" },
     topics: { bangla: String, english: String, math: String, gk: String, ict: String },
-    vocabFrom: Number,
-    vocabTo: Number,
+    vocabFrom: { type: Number, required: false },
+    vocabTo: { type: Number, required: false },
   },
   plain,
 );
