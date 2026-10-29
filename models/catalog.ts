@@ -46,7 +46,7 @@ const routineDaySchema = new Schema(
   {
     courseId: { type: ObjectId, ref: "Course", required: true },
     dayNo: { type: Number, required: true, min: 1 },
-    date: { type: Date, required: true }, // start of the Dhaka day, as a UTC instant
+    date: { type: Date, required: false }, // start of the Dhaka day, as a UTC instant
     type: { type: String, enum: ROUTINE_TYPES, default: "TOPIC" },
     topics: { bangla: String, english: String, math: String, gk: String, ict: String },
     vocabFrom: { type: Number, required: false },
