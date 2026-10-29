@@ -18,7 +18,7 @@ app.disable("x-powered-by");
 app.use(helmet());
 app.use(morgan(isProd ? "combined" : "dev"));
 
-const devOrigins = isProd ? [] : ["http://localhost:5173", "http://localhost:3000"];
+const devOrigins = isProd ? [] : ["meritlab-theta.vercel.app", "http://localhost:3000"];
 const allowed = new Set([...clientOrigins, ...devOrigins]);
 
 app.use(
